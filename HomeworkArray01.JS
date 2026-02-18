@@ -70,8 +70,6 @@ function metodoPop(){
 
 metodoPop()
 
-
-
 //MAP()
 
 function metodoMap(){
