@@ -8,14 +8,12 @@ import Arreglos from './Arreglos.tsx'
 
 
 createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  <StrictMode>
         < HelloWorld  />
         < PrintMessage message="Como te va?" />
         < PrintMessage message='El resultado es '/>
         <Contador suma = {15} />
         <Arreglos />
 
-
-    </React.StrictMode>
+    </StrictMode>
 )
-
