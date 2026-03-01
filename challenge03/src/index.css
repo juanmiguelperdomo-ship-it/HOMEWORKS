@@ -1,0 +1,171 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Contenedor del reproductor ===== */
+.player {
+  width: 350px;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Helvetica', sans-serif;
+  gap: 15px;
+  text-align: center;
+}
+
+/* ===== Nombre de la canción ===== */
+.player .song-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* ===== Artista ===== */
+.player .artist {
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+/* ===== Controles ===== */
+.player .controls {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Botones redondos */
+.player .controls button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.player .controls button:hover {
+  background-color: #646cff;
+  color: #fff;
+}
+
+/* ===== Barra de progreso ===== */
+.player .progress-container {
+  width: 100%;
+  background-color: #333;
+  height: 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.player .progress {
+  background-color: #646cff;
+  height: 100%;
+  width: 0%;
+  border-radius: 3px;
+  transition: width 0.2s ease;
+}
+
+/* ===== Tiempo ===== */
+.player .time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75em;
+  width: 100%;
+  margin-top: 5px;
+  color: #aaa;
+}
+
+/* ===== Botón grande de play/pause ===== */
+.player .play-pause {
+  width: 60px;
+  height: 60px;
+  font-size: 1.5em;
+  background-color: #646cff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  
+}
+
+h2 {
+  text-align: center;
+}
+
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
