@@ -10,7 +10,6 @@ class DlinkedList{
     constructor(){
         this.head = null
         this.tail = null
-        this.current = null
         this.length = 0
     }
 
@@ -19,7 +18,6 @@ class DlinkedList{
         if(!this.head){
             this.head = newNode
             this.tail = newNode
-            this.current = newNode
             return
         }
 
@@ -30,22 +28,16 @@ class DlinkedList{
         this.length++
     }
 
-    next(){
-        if(this.current?.next){
-            this.current = this.current.next
-        }
-        return this.current?.value
+    getNext(node){
+        return node?.next ?? null
     }
 
-    prev(){
-        if(this.current?.prev){
-            this.current = this.current.prev
-        }
-        return this.current?.value
+    getPrev(node){
+        return node?.prev ?? null
     }
 
-    getCurrent(){
-        return this.current?.value
+    getHead(){
+        return this.head
     }
 }
 

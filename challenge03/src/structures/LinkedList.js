@@ -10,7 +10,6 @@ class LinkedList{
         this.head = null
         this.tail = null
         this.length = 0
-        this.current = null
     }
 
     append(value){
@@ -18,7 +17,6 @@ class LinkedList{
 
         if(!this.head){
             this.head = newNode
-            this.current = newNode
         }else{
             this.tail.next = newNode
         }
@@ -27,18 +25,14 @@ class LinkedList{
         this.length ++
     }
 
-
-
-    next(){
-        if(this.current?.next){
-            this.current = this.current.next
-        }
-        return this.current?.value
+    getNext(node){
+        return node?.next ?? null
     }
 
-    getCurrent(){
-        return this.current?.value
+    getHead(){
+        return this.head
     }
 }
+
 
 export default LinkedList

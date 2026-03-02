@@ -4,7 +4,7 @@ import   LinkedList   from "../structures/LinkedList"
 function List(){
 
     const [linkedList] = useState(new LinkedList())
-    const [song, setSong] = useState("")
+    const [song, setSong] = useState(null)
 
     useEffect(()=>{
         if (linkedList.length === 0){
@@ -19,19 +19,27 @@ function List(){
             linkedList.append("Industry Baby")
             linkedList.append("Anti-Hero")
             linkedList.append("Circles")
-            setSong(linkedList.getCurrent())
+            setSong(linkedList.getHead())
         }
     },[]) 
 
     const nextSong = () =>{
-        setSong(linkedList.next())
+        if(song){
+            const next = linkedList.getNext(song)
+            if(next) setSong(next)
+        }
+    }
+
+    const reset= () =>{
+        setSong(linkedList.getHead())
     }
 
     return (
     <div>
       <h2>Playlist</h2>
-      <p>Cancion: {song}</p>
-      <button onClick={nextSong}>Siguiente</button>
+      <p>Cancion: {song?.value}</p>
+        <button onClick={reset}>Reiniciar</button>
+        <button onClick={nextSong}>Siguiente</button>
     </div>
   )
 }

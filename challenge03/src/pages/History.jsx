@@ -3,7 +3,7 @@ import DLinkedList from '../structures/DLinkedList';
 
 function History(){
     const [Dlist] = useState(new DLinkedList())
-    const [search, setsearch] = useState("")
+    const [search, setsearch] = useState(null)
 
     useEffect(()=>{
         if(Dlist.length === 0){
@@ -16,23 +16,28 @@ function History(){
             Dlist.append("https://campus.uaovirtual.edu.co/login/index.php?loginredirect=1")
             Dlist.append("https://workspace.google.com/intl/es-419/gmail/")
             Dlist.append("https://github.com")
-
-            setsearch(Dlist.getCurrent())
+            setsearch(Dlist.getHead())
         }
     },[])
 
     const prevSearch = ()=>{
-        setsearch(Dlist.prev())
+        if(search){
+            const prev = Dlist.getPrev(search)
+            if(prev) setsearch(prev)
+        }
     }
 
     const nextSearch = ()=>{
-            setsearch(Dlist.next())
+        if(search){
+            const next =  Dlist.getNext(search)
+            if(next) setsearch(next)
+        }
     }
 
     return(
         <div>
             <h2>Historial</h2>
-            <p>Pagina visitada: {search}</p>
+            <p>Pagina visitada: {search?.value}</p>
             <button onClick={prevSearch}>Anterior</button>
             <button onClick={nextSearch}>Siguiente</button> 
         </div>

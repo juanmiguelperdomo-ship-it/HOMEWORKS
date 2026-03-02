@@ -7,12 +7,12 @@ function App() {
   return (
     <BrowserRouter>
       <nav>
-        <Link to="/musica">Musica </Link> |
+        <Link to="/">Musica </Link> |
         <Link to="/history"> Historial</Link>
       </nav>
 
       <Routes>
-        <Route path="/musica" element={<List/>} />
+        <Route path="/" element={<List/>} />
         <Route path="/history" element={<History/>} />
       </Routes>
     </BrowserRouter>
