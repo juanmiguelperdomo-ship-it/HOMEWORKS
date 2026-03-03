@@ -19,7 +19,7 @@ function App() {
     }, 1500)
 
     return()=>{
-      clearInterval(timer)
+      clearTimeout(timer)
       console.log("intervalo limpiado")
     }
   },[])
