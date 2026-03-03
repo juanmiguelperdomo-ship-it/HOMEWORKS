@@ -41,6 +41,7 @@ function StudentList(){
         }else{
             setStudent(linkedList.getHead())
         }
+        console.log("Se ha eliminado a un estudiante")
     }
 
     useEffect(()=>{

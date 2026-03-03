@@ -24,7 +24,6 @@ class LinkedList{
         
         this.tail = newNode
         this.length++
-        console.log("Se ha añadido un estudiante")
         return
     }
 
@@ -53,7 +52,6 @@ class LinkedList{
             this.length --
         }
         return this.head
-        console.log("Se ha eliminado un estudiante")
         
     }   
 
