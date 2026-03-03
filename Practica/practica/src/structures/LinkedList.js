@@ -10,7 +10,6 @@ class LinkedList{
     constructor(){
         this.head = null
         this.tail = null
-        this.current = null
         this.length = 0
     }
 
@@ -19,7 +18,6 @@ class LinkedList{
 
         if(!this.head){
             this.head = newNode
-            this.current = newNode
         }else{
             this.tail.next = newNode
         }
@@ -41,11 +39,7 @@ class LinkedList{
             }
 
             this.length --
-            return
-        }
-
-        if(this.current?.value === value){
-            this.current = this.head
+            return this.head
         }
 
         current = this.head
@@ -58,19 +52,18 @@ class LinkedList{
             if(!current.next) this.tail = current
             this.length --
         }
+        return this.head
         console.log("Se ha eliminado un estudiante")
         
     }   
 
-    next(){
-        if(this.current?.next){
-            this.current = this.current.next
-        }
-        return this.current?.value
+    getNext(node){
+        return node?.next ?? null
     }
 
-    getCurrent(){
-        return this.current?.value
+
+    getHead(){
+        return this.head
     }
 
 }

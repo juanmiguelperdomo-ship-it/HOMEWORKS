@@ -18,21 +18,29 @@ function StudentList(){
             code
         })
 
-        setStudent(linkedList.getCurrent())
+        setStudent(linkedList.getHead())
         setName("")
         setAge("")
         setCode("")
     }
 
     const nextStudent = ()=>{
-        setStudent(linkedList.next())
+        if(student){
+            const next = linkedList.getNext(student)
+            if(next) setStudent(next)
+        }
     }
 
     const removeStudent = () =>{
         if(!student) return
+        const nextNode = student.next
+        linkedList.remove(student.value)
 
-        linkedList.remove(student)
-        setStudent(linkedList.getCurrent())
+        if(nextNode){
+            setStudent(nextNode)
+        }else{
+            setStudent(linkedList.getHead())
+        }
     }
 
     useEffect(()=>{
@@ -46,12 +54,12 @@ function StudentList(){
       <input type="text" value={name} placeholder="Nombre" onChange={(n) =>setName(n.target.value)} />
       <input type="text" value={age} placeholder="Edad" onChange={(a) =>setAge(a.target.value)} />
       <input type="text" value={code} placeholder="Codigo" onChange={(c) =>setCode(c.target.value)} />
-      <p>Estudiante: {student ? student.name: "Ninguno"}</p>
+       <br /> <br /> 
       <button onClick={addStudent}>Agregar</button>
       <button onClick={removeStudent}>Eliminar</button>
       <button onClick={nextStudent}>Siguiente</button>
 
-      <StudentView student ={student} />
+      <StudentView student ={student?.value} />
     </div>
   )
 }

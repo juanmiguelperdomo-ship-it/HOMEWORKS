@@ -5,8 +5,8 @@ function StudentView({ student }){
 
     return(
         <div>
-            <h2>Estudiante actual</h2>
             <p>
+                <h3>Estudiante actual</h3>
                 Nombre: {student.name} <br />
                 Edad: {student.age} <br />
                 Codigo: {student.code} 
