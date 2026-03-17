@@ -7,7 +7,7 @@ function Books(){
     const [books, setBooks] = useState([])
 
     useEffect(()=>{
-        if (stack.items.length === 0){
+        if (stack.size()){
             const data = [
                 {
                     name : "Cien años de soledad",
