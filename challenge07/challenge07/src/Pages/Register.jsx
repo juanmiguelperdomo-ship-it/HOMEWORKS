@@ -1,19 +1,19 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../ContextAPI/Context";
-import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../firebase/config"
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/config";
+import { useNavigate, Link} from "react-router-dom";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 
-function Login(){
+function Register(){
     const [email, setEmail] = useState("")
     const [password, setPassWord] = useState("")
 
     const navigate = useNavigate()
 
-    const handleLogin = async ()=>{
+    const handleRegister = async ()=>{
         try{
-            await signInWithEmailAndPassword(
+            await createUserWithEmailAndPassword(
                 auth, email, password
             )
             navigate("/dashboard")
@@ -26,7 +26,7 @@ function Login(){
     return(
 
         <div>
-            <h2>Login</h2>
+            <h2>Registro</h2>
 
             <input 
                 placeholder="Email"
@@ -34,18 +34,16 @@ function Login(){
             />
             <input 
                 placeholder="Contraseña"    
-                type="password"onChange={(e)=> setPassWord(e.target.value)}
-            />
-            
-            <button onClick={handleLogin}>Ingresar</button>
+                type="password"onChange={(e)=> setPassWord(e.target.value)}/>
 
-            <p>¿No tienes cuenta? <Link to={"/Register"}>Registrate</Link></p>
+            <button onClick={handleRegister}>
+                Crear Cuenta
+            </button>
+            <p>¿Ya tienes cuenta? <Link to="/login">Inicia sesión</Link></p>
 
 
         </div>
     )
 }
 
-export default Login
-
-
+export default Register

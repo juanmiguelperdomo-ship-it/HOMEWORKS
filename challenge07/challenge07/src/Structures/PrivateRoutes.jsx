@@ -3,7 +3,8 @@ import { AuthContext } from "../ContextAPI/Context"
 import { Navigate, Outlet } from "react-router-dom"
 
 function Private({children}){
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
+    if (loading) return <p>Cargando...</p>
     return user ? <Outlet /> : <Navigate to="/Login"/>
 }
 
