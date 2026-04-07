@@ -56,14 +56,12 @@ function Dashboard(){
             <ul>
                 {tasks.map((task) => (
                     <li key={task.id}>
-                        {/* Toggle done */}
+
                         <input
                             type="checkbox"
                             checked={task.done}
                             onChange={() => toggleTask(task.id)}
                         />
-
-                        {/* Editar o mostrar */}
                         {editId === task.id ? (
                             <>
                                 <input
