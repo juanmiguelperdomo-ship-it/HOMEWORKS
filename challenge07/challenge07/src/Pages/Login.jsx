@@ -1,21 +1,20 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../ContextAPI/Context";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../firebase/config"
-import { signInWithEmailAndPassword } from "firebase/auth";
 
 
 function Login(){
     const [email, setEmail] = useState("")
     const [password, setPassWord] = useState("")
 
+    const { login } =useContext(AuthContext)
+
+
     const navigate = useNavigate()
 
     const handleLogin = async ()=>{
         try{
-            await signInWithEmailAndPassword(
-                auth, email, password
-            )
+            await login(email, password)
             navigate("/dashboard")
         }catch(error){
             alert(error.message)

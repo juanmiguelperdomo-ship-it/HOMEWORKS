@@ -13,7 +13,7 @@ function Dashboard(){
     const [editId, setEditID] = useState(null)
     const [editTitle, setEditTitle] = useState("")
 
-    const {tasks, addTask, deleteTask, editTask, toggleTask } = useContext(TaskContext)
+    const {tasks, addTask, deleteTask, error, isPending, editTask, toggleTask } = useContext(TaskContext)
     const handleLogout = ()=>{
         logout()
         navigate("/login")
@@ -54,13 +54,13 @@ function Dashboard(){
             <button onClick={handleAdd}>Agregar</button>
 
             <ul>
-                {tasks.map((task) => (
+                {tasks?.map((task) => (
                     <li key={task.id}>
 
                         <input
                             type="checkbox"
                             checked={task.done}
-                            onChange={() => toggleTask(task.id)}
+                            onChange={() => toggleTask(task.id, task.done)}
                         />
                         {editId === task.id ? (
                             <>

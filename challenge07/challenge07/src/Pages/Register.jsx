@@ -1,21 +1,21 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "../ContextAPI/Context";
 import { auth } from "../firebase/config";
 import { useNavigate, Link} from "react-router-dom";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { AuthContext } from "../ContextAPI/Context";
 
 
 function Register(){
     const [email, setEmail] = useState("")
     const [password, setPassWord] = useState("")
 
+    const { register } = useContext(AuthContext)
+
     const navigate = useNavigate()
 
     const handleRegister = async ()=>{
         try{
-            await createUserWithEmailAndPassword(
-                auth, email, password
-            )
+            await register( email, password)
             navigate("/dashboard")
         }catch(error){
             alert(error.message)

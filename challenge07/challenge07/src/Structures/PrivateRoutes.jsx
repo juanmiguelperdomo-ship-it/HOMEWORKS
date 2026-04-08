@@ -1,6 +1,6 @@
-import { Children, useContext } from "react"
 import { AuthContext } from "../ContextAPI/Context"
 import { Navigate, Outlet } from "react-router-dom"
+import { useContext } from "react"
 
 function Private({children}){
     const { user, loading } = useContext(AuthContext)
